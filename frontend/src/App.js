@@ -6,6 +6,8 @@ import axios from "axios";
 import Sidebar from "./components/Sidebar";
 import AdSection from "./components/AdSection";
 
+const backendUrl = "https://rettid-backend.onrender.com"
+
 function App() {
   const [subreddit, setSubreddit] = useState("popular"); 
   const [sort, setSort] = useState("hot"); 
@@ -28,7 +30,7 @@ function App() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:5001/api/${subreddit}/${sort}`,
+        `${backendUrl}/api/${subreddit}/${sort}`,
         {
           params: { limit, after },
         }
